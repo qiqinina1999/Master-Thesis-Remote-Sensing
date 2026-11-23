@@ -3,11 +3,9 @@
 
 clear all;close all;clc;
 height='500m';
-load('/Volumes/YUCHIHUANG/Matlab/CaseAnalysis/CASE_20171225/time_date.mat');
-load('/Volumes/YUCHIHUANG/Matlab/PrintOut/mycolor','mycolor');
-load('/Volumes/YUCHIHUANG/Matlab/PrintOut/mycolor333.mat');
 
-file_traj=append('/Volumes/YUCHIHUANG/Matlab/CaseAnalysis/',CASE_name,'/GIS_traj_',height,'/GIS_*.txt');
+
+file_traj=append('GIS_*.txt');
 A=dir(file_traj);
 filename_traj=append(A.folder,'/',A.name);
 rawdata_traj=readmatrix(filename_traj);
@@ -43,11 +41,11 @@ pressure='700';
 title_name1=append(time_now,' AOD with ',pressure,'hPa wind');
 title_name2=append('      ',time_now,' Aerosol Type with ',pressure,'hPa wind');
 title_name3=append(time_now,' PM_{2.5} with ',pressure,'hPa wind');
-save_name1=append('/Volumes/YUCHIHUANG/Matlab/CaseAnalysis/',CASE_name,'/PNG_AOD_wind/MODIS_AOD_wind/',pressure,'hPa_Wind_traj_',height,'/AOD/',time_now,'_AOD.png');
-save_name2=append('/Volumes/YUCHIHUANG/Matlab/CaseAnalysis/',CASE_name,'/PNG_AOD_wind/MODIS_AOD_wind/',pressure,'hPa_Wind_traj_',height,'/Type/',time_now,'Type.png');
-save_name3=append('/Volumes/YUCHIHUANG/Matlab/CaseAnalysis/',CASE_name,'/PNG_AOD_wind/MODIS_AOD_wind/',pressure,'hPa_Wind_traj_',height,'/PM/',time_now,'PM.png');
+save_name1=append('/AOD.png');
+save_name2=append('/Type.png');
+save_name3=append('/PM.png');
 %% AOD
-filename_AOD=append('/Volumes/YUCHIHUANG/Matlab/CaseAnalysis/',CASE_name,'/PM_OceanLand_mat/PM_mat/',time_now,'_10T3km.mat');
+filename_AOD=append('*_10T3km.mat');
 load(filename_AOD);
 
 %% traj
