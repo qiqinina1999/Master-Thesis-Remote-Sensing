@@ -1,15 +1,17 @@
+%% Project: AOD, Aerosol Type, PM2.5 and Air Mass Trajectory Analysis
+%% Description: This project integrates satellite-derived aerosol products, atmospheric wind fields, and air mass trajectories to analyze the spatial distribution of aerosols and their transport patterns.
+
 clear all;close all;clc;
 height='500m';
 %pressure='700';
 addpath /Volumes/YUCHIHUANG/Matlab/m_map
-load('/Volumes/YUCHIHUANG/Matlab/CaseAnalysis/CASE_20191030/time_date.mat');
-load('/Volumes/YUCHIHUANG/Matlab/PrintOut/mycolor','mycolor');
-load('/Volumes/YUCHIHUANG/Matlab/PrintOut/mycolor333.mat');
+load('time_date.mat');
+
 
 heightlevel=[3000 2500 2250 2000 1750 1500 1250 1000 750 500 250 0];
 %pressurelevel=[975 950 925 900 875 850 825 800 775 750 725 700];
 
-file_trajA=append('/Volumes/YUCHIHUANG/Matlab/CaseAnalysis/',CASE_name,'/GIS_traj_',height,'/GIS_*.txt');
+file_trajA=append('GIS_traj_',height,'/GIS_*.txt');
 A=dir(file_trajA);
 filename_trajA=append(A.folder,'/',A.name);
 rawdata_trajA=readmatrix(filename_trajA);
@@ -21,7 +23,7 @@ time_UTC_trajA=timeA-hours(rawdata_trajA(:,1)-1000);
 time_LC_trajA=time_UTC_trajA+hours(8);
 rawdata_trajA(:,1)=[];
 
-file_trajB=append('/Volumes/YUCHIHUANG/Matlab/CaseAnalysis/',CASE_name,'/GIS_traj_',height,'_forward/GIS_*.txt');
+file_trajB=append('GIS_traj_',height,'_forward/GIS_*.txt');
 A=dir(file_trajB);
 filename_trajB=append(A.folder,'/',A.name);
 rawdata_trajB=readmatrix(filename_trajB);
@@ -47,7 +49,7 @@ time=time_LC_traj(1):days(1):time_LC_traj(end-23);
 [yy,mm,dd] = ymd(time(1));
 year_str_spec=num2str(yy);
 month_str_spec=num2str(mm);
-filename_wind=append('/Volumes/YUCHIHUANG/Matlab/CaseAnalysis/',CASE_name,'/wind',year_str_spec,month_str_spec);
+filename_wind=append('wind',year_str_spec,month_str_spec);
 lon_wind=ncread(filename_wind,'longitude');
 lat_wind=ncread(filename_wind,'latitude');
 time_wind=ncread(filename_wind,'time');
@@ -77,7 +79,7 @@ end
 year_str=num2str(yr);
 time_now=append(year_str,month_str,day_str);
 %% AOD
-filename_AOD=append('/Volumes/YUCHIHUANG/Matlab/CaseAnalysis/',CASE_name,'/PM_OceanLand_mat/PM_mat/',time_now,'_10T3km.mat');
+filename_AOD=append('*_10T3km.mat');
 load(filename_AOD);
 
 %% traj
@@ -118,11 +120,9 @@ pressure=string(pressurelevel(pressure_index));
 title_name1=append(year_str,'/',month_str,'/',day_str,' AOD with ',pressure,'hPa wind');
 title_name2=append('      ',year_str,'/',month_str,'/',day_str,' Aerosol Type with ',pressure,'hPa wind');
 title_name3=append(year_str,'/',month_str,'/',day_str,' PM_{2.5} with ',pressure,'hPa wind');
-%save_name1=append('/Volumes/YUCHIHUANG/Matlab/CaseAnalysis/',CASE_name,'/PNG_AOD_wind/MODIS_AOD_wind/AOD/',time_now,'_AOD.png');
-save_name1=append('/Volumes/YUCHIHUANG/Matlab/CaseAnalysis/',CASE_name,'/PNG_AOD_wind/MODIS_AOD_wind/AOD/',time_now,'_AOD.png');
-%save_name2=append('/Volumes/YUCHIHUANG/Matlab/CaseAnalysis/',CASE_name,'/PNG_AOD_wind/MODIS_AOD_wind/Type/',time_now,'Type.png');
-save_name2=append('/Volumes/YUCHIHUANG/Matlab/CaseAnalysis/',CASE_name,'/PNG_AOD_wind/MODIS_AOD_wind/Type/',time_now,'Type.png');
-save_name3=append('/Volumes/YUCHIHUANG/Matlab/CaseAnalysis/',CASE_name,'/PNG_AOD_wind/MODIS_AOD_wind/PM/',time_now,'PM.png');
+save_name1=append('AOD.png');
+save_name2=append('Type.png');
+save_name3=append('PM.png');
 
 %% figure
 %% AOD
