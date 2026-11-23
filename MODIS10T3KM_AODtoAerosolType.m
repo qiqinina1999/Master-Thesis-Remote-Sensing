@@ -1,5 +1,5 @@
 %% Project: Retrieved Aerosol Type from Aerosol Optical Depth (AOD)
-%% Description:  This project extracts the fractions of total aerosol optical depth (fAOD) contributed by major aerosol components using the Normalized Derivative Aerosol Index (NDAI), following the method proposed by Lin et al. (2021).
+%% Description:  This project extracts the fractions of total aerosol optical depth (fAOD) contributed by major aerosol components (Desert Dust (DS), Biomass Burning (BB), and Anthropogenic Pollution (AP)) using the Normalized Derivative Aerosol Index (NDAI), following the method proposed by Lin et al. (2021).
 """
 
 clear;clc; 
