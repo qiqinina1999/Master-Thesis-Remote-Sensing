@@ -1,11 +1,6 @@
-clear all;close all;
-%cd /Volumes/YUCHIHUANG/MODISvsGroundStation/MODIS_mat/
-%cd /Volumes/YUCHIHUANG/Chuang/MODIS_mat_1/
-%cd /Volumes/YUCHIHUANG/Matlab/CASE_20201023/mat/
-%cd /Volumes/YUCHIHUANG/Matlab/Work/MODIS_mat/
-CASE_name='CASE_20191030';
-cd /Volumes/YUCHIHUANG/Matlab/CaseAnalysis/CASE_20191030/PM_OceanLand_mat/mat/
 
+
+clear all;close all;
 MODISfilename=dir(['2*.mat']);
 
 m = length(MODISfilename);
@@ -129,8 +124,7 @@ for i=1:size(dcAODData660,1)
          
     end
 end
-%savename=['/Volumes/YUCHIHUANG/Matlab/CASE_20201023/PM_mat/',MODISfilename(k).name];
-savename=['/Volumes/YUCHIHUANG/Matlab/CaseAnalysis/',CASE_name,'/PM_OceanLand_mat/PM_mat/',MODISfilename(k).name];
-%save(savename,'X','Y','dctestall243','dctestall2','dcAODData660','PM_AOD','PM_AOD_BB','PM_AOD_DS','PM_AOD_AP','ddsslope470660sss','F222');
+
+savename=['MODISfilename(k).name];
 save(savename,'X','Y','dctestall243','dcAODData660','dcAODData550','dcAODData470','PM_AOD','PM_AOD_BB','PM_AOD_DS','PM_AOD_AP');
 end
