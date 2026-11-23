@@ -8,9 +8,7 @@ tic
 yrange=118:0.03:123;%
 xrange=21:0.03:26;
 [X,Y] = meshgrid(xrange,yrange);%set lat lon range
-CASE_name='CASE_20230413';
-cd /Volumes/YUCHIHUANG/Matlab/CASE_20230413/MODIS
-%MODISfilename='./home/yuchihuang/NAS97/MODIS/MOD04_L2.A2017321.0210.061.2017321210403.hdf';
+%MODISfilename='MOD04_L2.A2017321.0210.061.2017321210403.hdf';
 MODISfilename=dir(['*L2.A20*.hdf'])
 
 m = length(MODISfilename);
@@ -71,7 +69,7 @@ QR={'Optical_Depth_Land_And_Ocean'
    end
 
 %% MODIS AOD (10KM) 
-%Mfilename = './home/yuchihuang/NAS97/MOD04_L2.A2017321.0210.061.2017321210403.hdf';
+%Mfilename = 'MOD04_L2.A2017321.0210.061.2017321210403.hdf';
 Mfilename = ([HI{1}]);
 
 MLongitude = hdfread(Mfilename, 'Longitude', 'Index', {[],[],[]});
@@ -193,7 +191,7 @@ lo = size(Y,2);
 %% GMAO PBLH
 name = ['/Volumes/YUCHIHUANG/Matlab/',CASE_name,'/MODIS/',HJ] %file name
 %name = append('/Data01/yuchihuang/',CASE_name,'/MODIS/',HJ);
-%name = '/home/ts02061902/NAS97/GMAO/201701_12/GEOS.fp.asm.tavg1_2d_flx_Nx.20171222_0230.V01.nc4'; %file name
+%name = 'GEOS.fp.asm.tavg1_2d_flx_Nx.20171222_0230.V01.nc4'; %file name
 pblh0 = ncread(name,'PBLH');
 lat0 = ncread(name,'lat');
 lon0 = ncread(name,'lon');
@@ -957,7 +955,7 @@ for i=1:la
 end
 
 
-savename=['/Volumes/YUCHIHUANG/Matlab/',CASE_name,'/mat/',date1,'_10T3km']
+savename=['date1,'_10T3km']
 
 save(savename,'X','Y','dctestall243','dctestall2','dcAODData660','dcPM','dctwpb','dctwnext') 
 %clearvars -except x m n xx mm nn f num num2 KI KI2 LI LI2 X Y
