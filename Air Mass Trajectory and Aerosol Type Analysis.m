@@ -1,3 +1,6 @@
+%% Project:　Air Mass Trajectory and Aerosol Type Analysis
+%% Description: This project identifies and analyzes aerosol types along air mass trajectories by spatially matching trajectory coordinates with satellite-derived aerosol type data. The frequency of each aerosol type along the trajectories is then calculated.
+
 clear all;close all;clc;
 height='500m';
 load('/Volumes/YUCHIHUANG/Matlab/CaseAnalysis/CASE_20171225/time_date.mat');
