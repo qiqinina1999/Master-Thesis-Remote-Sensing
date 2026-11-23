@@ -1,3 +1,6 @@
+%%Project: MODIS PM2.5 Statistical Analysis
+%% Description: This project analyzes the relationships between MODIS-derived Aerosol Optical Depth (AOD), satellite-retrieved PM2.5, and ground-based PM2.5 observations through daily data aggregation, outlier detection, linear regression, and correlation analysis.
+
 clear all;close all;
 TTT='hourly';
 loadname=append('MODIS_PM_compared_',TTT,'.mat');
