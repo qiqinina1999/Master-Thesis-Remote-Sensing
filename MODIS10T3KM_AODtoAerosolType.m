@@ -1,3 +1,5 @@
+%%
+
 clear;clc; 
 close all
 tic
@@ -8,9 +10,6 @@ tic
 yrange=90:0.03:140;
 xrange=10:0.03:50;
 [X,Y] = meshgrid(xrange,yrange);%set lat lon range
-CASE_name='CASE_20191023';
-cd /Volumes/YUCHIHUANG/Matlab/Work/MODIS/
-%MODISfilename='./home/yuchihuang/NAS97/MODIS/MOD04_L2.A2017321.0210.061.2017321210403.hdf';
 MODISfilename=dir(['MOD04_L2.A20*.hdf'])
 
 m = length(MODISfilename);
@@ -687,7 +686,7 @@ for i=1:la
 end
 
 
-savename=['/Volumes/YUCHIHUANG/Matlab/Work/MODIS_mat/',date1,'_10T3km']
+savename=['date1,'_10T3km']
 
 save(savename,'X','Y','dctestall243','dctestall2','dcAODData660','dcAODData550','dcAODData470') ;
 %clearvars -except x m n xx mm nn f num num2 KI KI2 LI LI2 X Y
