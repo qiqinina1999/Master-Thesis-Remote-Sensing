@@ -1,4 +1,5 @@
-%%
+%% Project: Extracted Fractions of The Total AOD (fAOD) For Major Aerosol Components by Normalized Derivative Aerosol Index (NDAI)
+
 
 clear;clc; 
 close all
