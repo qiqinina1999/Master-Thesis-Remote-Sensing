@@ -1,4 +1,6 @@
-
+%% Project: Retrieved PM2.5 from Aerosol Optical Depth (AOD) and Aersol Type
+%% Description: This project applies the relationships of the aerosol optical depth and PM2.5 proposed by Sano et al.(2010) to three aerosol types: Desert Dust (DS), Biomass Burning (BB), and Anthropogenic Pollution (AP), to esimate the PM2.5 concentration.
+"""
 
 clear all;close all;
 MODISfilename=dir(['2*.mat']);
